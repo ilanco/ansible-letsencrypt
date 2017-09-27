@@ -1,0 +1,24 @@
+---
+
+- name: Add certbot PPA
+  apt_repository:
+    repo: 'ppa:certbot/certbot'
+
+- name: Update repositories cache and install "python-certbot-nginx" package
+  apt:
+    name: python-certbot-nginx
+    update_cache: yes
+
+- name: Register account
+  command: "certbot register --agree-tos -m {{ le_account_email }} -n"
+  register: register_command_result
+  ignore_errors: yes
+
+- name: Get certificate
+  command: "certbot run --nginx -n -d {{ ','.join(le_domains) }}"
+
+- name: Add cronjob for cert renewal
+  cron:
+    name: certbot_renewal
+    special_time: weekly
+    job: certbot renew

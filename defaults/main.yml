@@ -1,0 +1,3 @@
+le_domains: []
+le_key_name: "{{ le_domains[0] }}"
+le_ca: "https://acme-staging.api.letsencrypt.org"

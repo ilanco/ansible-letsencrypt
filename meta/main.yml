@@ -1,0 +1,18 @@
+---
+galaxy_info:
+  author: ilanco
+  description: Let's Encrypt role
+  company: "Orthodox Union"
+  license: "license (BSD, MIT)"
+  min_ansible_version: 2.0
+  platforms:
+  - name: Ubuntu
+    versions:
+      - precise
+      - trusty
+      - xenial
+  galaxy_tags:
+    - ssl
+    - letsencrypt
+    - certificate
+    - https
