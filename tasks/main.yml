@@ -15,7 +15,7 @@
   ignore_errors: yes
 
 - name: Get certificate
-  command: "certbot run --nginx -n -d {{ ','.join(le_domains) }}"
+  command: "certbot run --nginx -n -d {{ ','.join(le_domains) }} --expand"
 
 - name: Add cronjob for cert renewal
   cron:
